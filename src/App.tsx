@@ -1,7 +1,9 @@
+import { Router } from "./Pages/Router";
+
 function App() {
 
   return (
-    <h1>StayStronk-PWA</h1>
+    <Router/>
   )
 }
 
