@@ -2,7 +2,7 @@ import { MagnifyingGlass } from "phosphor-react"
 import styled from "styled-components"
 import { theme } from "../../GlobalStyles/Theme"
 
-export const InputContainer = styled.div<{width?: string, height?: string}>`
+export const InputContainer = styled.div<{width?: string, height?: string, margin?: string}>`
     display: flex;
     align-items: center;
     height: ${props => props.height || "44px"};
@@ -10,12 +10,10 @@ export const InputContainer = styled.div<{width?: string, height?: string}>`
     border-radius: 10px;
     background-color: ${theme.colors.gray800};
     overflow: hidden;
-    margin-bottom: 1rem;
+    margin: ${props => props.margin || "0 0 1rem 0"};
     box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.15);
-`
-
-export const SearchIcon = styled(MagnifyingGlass)`
-    margin: 0 .5rem;
+    gap: 0.5rem;
+    padding-left: .8rem;
 `
 
 export const InputElement = styled.input`
@@ -23,6 +21,5 @@ export const InputElement = styled.input`
     height: 44px;
     border: none;
     color: ${theme.colors.white};
-    padding-left: .4rem;
     width: 100%;
 `

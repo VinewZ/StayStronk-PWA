@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { InputContainer, InputElement, SearchIcon } from './styles'
+import React, { ReactNode, useState } from 'react'
+import { InputContainer, InputElement } from './styles'
 
 interface InputProps {
     type: string
@@ -8,13 +8,15 @@ interface InputProps {
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
     width?: string
     height?: string
+    icon?: ReactNode
+    margin?: string
 }
 
-export function Input({type, placeholder, value, onChange, width, height}: InputProps) {
+export function Input({type, placeholder, value, onChange, width, height, icon, margin}: InputProps) {
 
   return (
-    <InputContainer width={width} height={height}>
-        <SearchIcon size={24}/>
+    <InputContainer width={width} height={height} margin={margin}>
+        {icon}
         <InputElement 
             type={type} 
             placeholder={placeholder} 
