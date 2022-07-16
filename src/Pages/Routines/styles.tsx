@@ -7,8 +7,9 @@ export const RoutinesPage = styled.div`
     flex-direction: column;
     gap: 1rem;
 
-    div{
-        display: flex;
-        gap: 1rem;
-    }
+`
+
+export const RoutinesPageHeader = styled.div`
+    display: flex;
+    gap: 1rem;
 `

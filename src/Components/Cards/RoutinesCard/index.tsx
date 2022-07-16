@@ -1,13 +1,33 @@
-import React from 'react'
-import { Card } from '../Card'
+import { useNavigate } from "react-router-dom";
+import { RoutineCardFooter, RoutineCardHeader, RoutinesCardContainer, RoutinesCardImage, RoutinesCardInfo } from "./styles";
 
-export function RoutinesCard() {
+interface RoutinesCardType {
+  title: string,
+  description: string,
+  bodyPart: string;
+  linkTo: string;
+}
+
+export function RoutinesCard({ title, description, bodyPart, linkTo }: RoutinesCardType) {
+
+  const navigate = useNavigate()
+
+  function navigateTo() {
+    navigate(linkTo)
+  }
+
   return (
-    <Card
-      title='Routines'
-      description='Routines Data'
-      image='https://loremflickr.com/320/240'
-      linkTo='/routines'
-    />
+    <RoutinesCardContainer onClick={linkTo ? navigateTo : undefined}>
+      <RoutinesCardImage src="https://loremflickr.com/320/240" alt="" />
+      <RoutinesCardInfo>
+        <RoutineCardHeader>
+          <h3>{title}</h3>
+          <p>{description}</p>
+        </RoutineCardHeader>
+        <RoutineCardFooter>
+          <small>{bodyPart}</small>
+        </RoutineCardFooter>
+      </RoutinesCardInfo>
+    </RoutinesCardContainer>
   )
 }
