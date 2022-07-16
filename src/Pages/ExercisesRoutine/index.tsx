@@ -1,16 +1,17 @@
 import { Fragment } from "react";
 import { useParams } from "react-router-dom";
-import { Card } from "../../Components/Cards/Card";
+import { v4 as uuidv4 } from 'uuid';
+import { ExerciseCard } from "../../Components/Cards/ExerciseCard";
 import { useRoutines } from "../../Hooks/useRoutines";
-import { RoutinePage } from "./styles";
+import { ExercisesRoutinePage } from "./styles";
 
-export function Routine() {
+export function ExercisesRoutine() {
 
   const { userRoutines } = useRoutines()
   const { id } = useParams()
 
   return (
-    <RoutinePage>
+    <ExercisesRoutinePage>
       {
         userRoutines.map(routine => {
           if (routine.id === id) {
@@ -19,10 +20,13 @@ export function Routine() {
                 <h2>{routine.title}</h2>
                 {
                   routine.exercises.map(exercise => (
-                    <Card
-                      key={exercise.id}
+                    <ExerciseCard
+                      key={uuidv4()}
                       title={exercise.name}
                       image={exercise.gifUrl}
+                      target={exercise.target}
+                      bodyPart={exercise.bodyPart}
+                      equipment={exercise.equipment}
                     />
                   ))
                 }
@@ -31,6 +35,6 @@ export function Routine() {
           }
         })
       }
-    </RoutinePage>
+    </ExercisesRoutinePage>
   )
 }

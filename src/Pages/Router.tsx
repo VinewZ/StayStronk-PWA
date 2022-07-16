@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom'
+import { ExercisesRoutine } from './ExercisesRoutine'
 import { Home } from './Home'
-import { Routine } from './Routine'
 import { Routines } from './Routines'
 
 export function Router() {
@@ -8,7 +8,7 @@ export function Router() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/routines" element={<Routines />} />
-      <Route path="/routine/:id/:id" element={<Routine />} />
+      <Route path="/routine/:id/:id" element={<ExercisesRoutine />} />
     </Routes>
   )
 }

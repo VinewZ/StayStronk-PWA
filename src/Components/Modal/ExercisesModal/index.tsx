@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { useExercises } from '../../../Hooks/useExercises';
-import { Card } from '../../Cards/Card';
+import { ExerciseCard } from '../../Cards/ExerciseCard';
 import { NewRoutineType } from '../../CreateNewRoutine';
 import { ExercisesStyledModal } from './styles';
 
@@ -27,12 +27,15 @@ export function ExercisesModal({ isExercisesModalOpen, setIsExercisesModalOpen, 
             onBackgroundClick={closeModal}
             onEscapeKeydown={closeModal}
         >
-            {allExercises.map(exercise => (
-                <Card
+            {allExercises && allExercises.map(exercise => (
+                <ExerciseCard
                     key={uuidv4()}
                     image={exercise.gifUrl}
                     title={exercise.name}
-                    description={exercise.target}
+                    target={exercise.target}
+                    bodyPart={exercise.bodyPart}
+                    equipment={exercise.equipment}
+
                     onClick={() => {
                         setNewRoutine({
                             ...newRoutine,
