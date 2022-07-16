@@ -12,7 +12,7 @@ export const GlobalStyle = createGlobalStyle`
     color: ${theme.colors.white};
     background: ${theme.colors.gray900};
     -webkit-font-smoothing: antialiased;
-    padding: 1rem;
+    padding: 1rem 1rem 85px 1rem;
   }
   h1,
   h2,
