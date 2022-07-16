@@ -1,22 +1,26 @@
-import { PlusCircle } from 'phosphor-react'
 import { ReactNode } from 'react'
-import { theme } from '../../../GlobalStyles/Theme'
 import { ButtonContainer } from './styles'
 
-interface ButtonProps {
+interface ButtonType {
   text: string
   onClick: () => void
   width?: string
   height?: string
   icon?: ReactNode
+  disabled?: boolean
 }
 
-export function Button({text, onClick, width, height, icon}: ButtonProps) {
+export function Button({ text, onClick, width, height, icon, disabled }: ButtonType) {
 
   return (
-    <ButtonContainer width={width} height={height} onClick={onClick}>
-        {icon}
-        <span>{text}</span>
+    <ButtonContainer
+      disabled={disabled}
+      width={width}
+      height={height}
+      onClick={onClick}
+    >
+      {icon}
+      <span>{text}</span>
     </ButtonContainer>
   )
 }

@@ -1,11 +1,10 @@
-import { MagnifyingGlass } from "phosphor-react"
 import styled from "styled-components"
 import { theme } from "../../GlobalStyles/Theme"
 
-export const InputContainer = styled.div<{width?: string, height?: string, margin?: string}>`
+export const InputContainer = styled.div<{ width?: string, height?: string, margin?: string }>`
     display: flex;
     align-items: center;
-    height: ${props => props.height || "44px"};
+    min-height: ${props => props.height || "44px"};
     width: ${props => props.width || "100%"};
     border-radius: 10px;
     background-color: ${theme.colors.gray800};

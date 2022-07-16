@@ -1,31 +1,30 @@
-import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { CardContainer, CardDescription, CardImage, CardInfo, CardTitle } from './styles'
 
-interface CardProps {
-    title: string
-    description: string
-    image: string
-    linkTo?: string
+interface CardType {
+  title: string
+  image: string
+  description?: string
+  linkTo?: string
+  onClick?: any
 }
 
-export function Card({ image, title, description, linkTo }: CardProps) {
+export function Card({ image, title, description, linkTo, onClick }: CardType) {
 
   const navigate = useNavigate()
 
   function navigateTo() {
-    if (linkTo) {
-      navigate(linkTo)
-    }
+    if (!linkTo) return
+    navigate(linkTo)
   }
 
   return (
-    <CardContainer onClick={navigateTo} >
-        <CardInfo>
-            <CardTitle>{title}</CardTitle>
-            <CardDescription>{description}</CardDescription>
-        </CardInfo>
-        <CardImage src={image} alt={title}/>
+    <CardContainer onClick={onClick ? onClick : navigateTo}>
+      <CardInfo>
+        <CardTitle>{title}</CardTitle>
+        <CardDescription>{description}</CardDescription>
+      </CardInfo>
+      <CardImage src={image} alt={title} />
     </CardContainer>
   )
 }

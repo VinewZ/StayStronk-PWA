@@ -2,12 +2,12 @@ import styled from "styled-components";
 import { theme } from "../../../GlobalStyles/Theme";
 
 export const CardContainer = styled.div`
-    height: 150px;
+    min-height: 150px;
     border-radius: 10px;
     background-color: ${theme.colors.gray800};
     width: 100%;
     display: flex;
-    overflow: hidden;
+    overflow-y: auto;
     margin-bottom: 1rem;
 `
 
